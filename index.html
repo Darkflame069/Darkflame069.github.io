@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abhirvey Jena · Product Manager</title>
+<meta name="description" content="Abhirvey Jena, Associate Product Manager. Product strategy, GTM frameworks, and analytics for AI-powered SaaS.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1C2321;
+    --ink-soft:#3a423f;
+    --paper:#F2F0E6;
+    --paper-raised:#EAE6D8;
+    --mustard:#C98A2D;
+    --teal:#3E6259;
+    --line: rgba(28,35,33,0.14);
+    --max: 880px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{animation:none !important; transition:none !important;} }
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{ font-family:'Fraunces', serif; font-weight:600; margin:0; letter-spacing:-0.01em; }
+  .mono{ font-family:'JetBrains Mono', monospace; }
+  a{ color:inherit; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 28px; }
+
+  /* Nav */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(242,240,230,0.88);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{ display:flex; align-items:center; justify-content:space-between; padding-top:18px; padding-bottom:18px; max-width:1040px; }
+  .logo{ font-family:'Fraunces', serif; font-weight:600; font-size:20px; text-decoration:none; }
+  .navlinks{ display:flex; gap:28px; font-size:14px; }
+  .navlinks a{ text-decoration:none; opacity:0.75; transition:opacity .2s ease; position:relative; padding-bottom:2px; }
+  .navlinks a::after{ content:''; position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--mustard); transition:width .25s ease; }
+  .navlinks a:hover::after, .navlinks a:focus-visible::after{ width:100%; }
+  .navlinks a:hover, .navlinks a:focus-visible{ opacity:1; }
+  .navlinks a:focus-visible{ outline:2px solid var(--mustard); outline-offset:4px; }
+  .navcta{
+    border:1px solid var(--ink); padding:7px 16px; border-radius:2px; text-decoration:none;
+    font-size:13px; letter-spacing:0.02em;
+  }
+  .navcta:hover{ background:var(--ink); color:var(--paper); }
+  .menu-btn{ display:none; background:none; border:none; cursor:pointer; padding:8px; }
+  .menu-btn span{ display:block; width:22px; height:2px; background:var(--ink); margin:5px 0; }
+
+  section{ padding:80px 0; }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace; font-size:12px; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--teal); margin-bottom:18px; display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{ content:''; width:22px; height:1px; background:var(--teal); display:inline-block; }
+
+  /* HERO */
+  .hero{ padding-top:72px; padding-bottom:64px; max-width:1040px; }
+  .hero h1{ font-size:clamp(38px, 6vw, 64px); line-height:1.06; max-width:15ch; }
+  .hero h1 em{ font-style:italic; color:var(--mustard); }
+  .hero .lede{ max-width:52ch; font-size:18px; color:var(--ink-soft); margin-top:22px; }
+  .hero-actions{ display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; }
+  .btn{
+    text-decoration:none; padding:12px 22px; border-radius:2px; font-size:14px; letter-spacing:0.01em;
+    display:inline-block; transition:transform .15s ease, background .15s ease;
+  }
+  .btn-primary{ background:var(--ink); color:var(--paper); }
+  .btn-primary:hover{ background:var(--teal); transform:translateY(-1px); }
+  .btn-ghost{ border:1px solid var(--line); }
+  .btn-ghost:hover{ border-color:var(--ink); }
+
+  /* Rubric card — signature element */
+  .rubric{
+    margin-top:56px; border:1px solid var(--line); background:var(--paper-raised);
+    border-radius:3px; overflow:hidden; max-width:640px;
+  }
+  .rubric-head{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:14px 20px; border-bottom:1px solid var(--line);
+    font-family:'JetBrains Mono', monospace; font-size:12px; letter-spacing:0.08em;
+  }
+  .rubric-head .status{ color:var(--teal); }
+  .rubric-row{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:13px 20px; border-bottom:1px solid var(--line); font-size:14px;
+  }
+  .rubric-row:last-child{ border-bottom:none; }
+  .rubric-row .criterion{ font-family:'JetBrains Mono', monospace; }
+  .dots{ display:flex; gap:5px; }
+  .dot{ width:8px; height:8px; border-radius:50%; background:var(--line); transition:background .3s ease, transform .3s ease; }
+  .dot.on{ background:var(--mustard); }
+  .rubric:hover .dot.on{ transform:scale(1.15); }
+
+  /* APPROACH */
+  .approach-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); margin-top:44px; }
+  .approach-item{ background:var(--paper); padding:28px; transition:background .25s ease; }
+  .approach-item:hover{ background:var(--paper-raised); }
+  .approach-item .num{ font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--mustard); }
+  .approach-item h3{ font-size:19px; margin-top:10px; }
+  .approach-item p{ font-size:14.5px; color:var(--ink-soft); margin-top:8px; }
+
+  /* CASE STUDIES — brief format */
+  .brief{
+    border:1px solid var(--line); border-radius:3px; margin-top:28px; background:var(--paper-raised);
+    overflow:hidden; transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .brief:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 28px rgba(28,35,33,0.10);
+    border-color:var(--teal);
+  }
+  .brief-head{
+    padding:22px 26px; border-bottom:1px solid var(--line);
+    display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap;
+  }
+  .brief-head h3{ font-size:23px; }
+  .brief-tag{
+    font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:0.06em;
+    border:1px solid var(--teal); color:var(--teal); padding:4px 10px; border-radius:20px; white-space:nowrap;
+  }
+  .brief-body{ padding:22px 26px; display:grid; gap:18px; }
+  .brief-field .label{
+    font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--mustard); margin-bottom:6px;
+  }
+  .brief-field p{ font-size:15px; color:var(--ink-soft); }
+  .brief-field ul{ margin:0; padding-left:18px; font-size:15px; color:var(--ink-soft); }
+  .brief-field li{ margin-bottom:4px; }
+  .placeholder-note{
+    font-size:12.5px; color:var(--teal); font-style:italic; margin-top:2px;
+  }
+
+  /* DASHBOARD MOCKUP */
+  .dash-caption{ font-size:12.5px; color:var(--ink-soft); font-style:italic; padding:0 26px 18px; }
+  .dash-mock{ border-top:1px solid var(--line); }
+  .dash-tabs{ display:flex; gap:0; border-bottom:1px solid var(--line); background:var(--paper); }
+  .dash-tab{
+    font-family:'JetBrains Mono', monospace; font-size:12px; letter-spacing:0.04em;
+    padding:12px 18px; background:none; border:none; cursor:pointer; color:var(--ink-soft);
+    border-bottom:2px solid transparent; margin-bottom:-1px; transition:color .2s ease, border-color .2s ease;
+  }
+  .dash-tab:hover{ color:var(--ink); }
+  .dash-tab.active{ color:var(--ink); border-bottom-color:var(--mustard); }
+  .dash-tab:focus-visible{ outline:2px solid var(--mustard); outline-offset:-2px; }
+  .dash-panel{ display:none; padding:26px; }
+  .dash-panel.active{ display:block; animation:fadeIn .4s ease; }
+  @keyframes fadeIn{ from{ opacity:0; transform:translateY(4px);} to{ opacity:1; transform:none;} }
+  .dash-kpis{ display:flex; gap:28px; flex-wrap:wrap; margin-bottom:26px; }
+  .dash-kpi .val{ font-family:'Fraunces', serif; font-size:26px; font-weight:600; }
+  .dash-kpi .lbl{ font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.06em; margin-top:2px; }
+  .dash-charts{ display:grid; grid-template-columns:1.3fr 1fr; gap:28px; align-items:center; }
+  .bar-chart{ display:flex; align-items:flex-end; gap:10px; height:120px; }
+  .bar-col{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%; }
+  .bar{ width:100%; background:var(--teal); border-radius:2px 2px 0 0; height:0%; transition:height .7s cubic-bezier(.2,.7,.3,1); }
+  .bar-col .bar-label{ font-family:'JetBrains Mono', monospace; font-size:10px; color:var(--ink-soft); margin-top:6px; }
+  .donut-wrap{ display:flex; align-items:center; gap:16px; }
+  .donut{ width:96px; height:96px; border-radius:50%; flex-shrink:0; transition:transform .3s ease; }
+  .donut-wrap:hover .donut{ transform:scale(1.05); }
+  .donut-legend{ font-size:12.5px; display:flex; flex-direction:column; gap:6px; }
+  .donut-legend span{ display:flex; align-items:center; gap:7px; }
+  .swatch{ width:9px; height:9px; border-radius:2px; display:inline-block; }
+  @media (max-width:600px){ .dash-charts{ grid-template-columns:1fr; } }
+
+  /* SKILLS LEDGER */
+  .ledger{ margin-top:40px; border-top:1px solid var(--line); }
+  .ledger-row{
+    display:flex; justify-content:space-between; padding:16px 4px; border-bottom:1px solid var(--line);
+    gap:24px; flex-wrap:wrap; transition:background .2s ease, padding-left .2s ease;
+  }
+  .ledger-row:hover{ background:var(--paper-raised); padding-left:12px; }
+  .ledger-row .lname{ font-weight:600; min-width:200px; }
+  .ledger-row .ldesc{ color:var(--ink-soft); font-size:14.5px; flex:1; min-width:220px; }
+
+  /* ABOUT / PHOTO */
+  .about{ display:flex; align-items:center; gap:36px; margin-top:40px; flex-wrap:wrap; }
+  .about-photo{
+    width:140px; height:140px; border-radius:50%; flex-shrink:0;
+    background:var(--paper-raised); border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--ink-soft); text-align:center; padding:10px;
+    background-image:url('REPLACE_WITH_PHOTO_URL.jpg'); background-size:cover; background-position:center;
+  }
+  .about-text{ max-width:46ch; }
+  .about-text p{ color:var(--ink-soft); font-size:15px; }
+
+  /* CONTACT */
+  .contact{ background:var(--ink); color:var(--paper); border-radius:4px; padding:56px 40px; margin-top:20px; text-align:center; }
+  .contact h2{ font-size:clamp(28px,4vw,40px); color:var(--paper); max-width:20ch; margin:0 auto; }
+  .contact p{ color:rgba(242,240,230,0.7); margin-top:14px; }
+  .contact .hero-actions{ justify-content:center; margin-top:30px; }
+  .contact .btn-primary{ background:var(--mustard); color:var(--ink); }
+  .contact .btn-ghost{ border-color:rgba(242,240,230,0.3); }
+
+  footer{ padding:36px 0 60px; text-align:center; font-size:13px; color:var(--ink-soft); }
+
+  [data-reveal]{ opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease; }
+  [data-reveal].in{ opacity:1; transform:none; }
+
+  @media (max-width:720px){
+    .navlinks{ display:none; }
+    .menu-btn{ display:block; }
+    .approach-grid{ grid-template-columns:1fr; }
+    section{ padding:56px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a class="logo" href="#top">AJ</a>
+    <div class="navlinks">
+      <a href="#work">Work</a>
+      <a href="#approach">Approach</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="navcta" href="#" id="resume-link">Resume ↓</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<div id="mobileMenu" style="display:none; border-bottom:1px solid var(--line); background:var(--paper);">
+  <div class="wrap" style="display:flex; flex-direction:column; gap:16px; padding:20px 28px;">
+    <a href="#work">Work</a>
+    <a href="#approach">Approach</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero wrap">
+    <div class="eyebrow">Associate Product Manager · AI SaaS</div>
+    <h1>I turn fuzzy problems into <em>scored</em>, defensible bets.</h1>
+    <p class="lede">
+      I'm Abhirvey Jena. I work in product strategy, GTM, and analytics for AI-native enterprise software,
+      building the frameworks that decide what a team should build next and why.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#work">See the work</a>
+      <a class="btn btn-ghost" href="mailto:REPLACE_WITH_EMAIL">Get in touch</a>
+    </div>
+
+    <!-- Signature element: rubric card, drawn from the actual criteria structure used in real GTM/qualification work -->
+    <div class="rubric" data-reveal>
+      <div class="rubric-head">
+        <span>HOW_I_EVALUATE_A_BET.md</span>
+        <span class="status">● framework</span>
+      </div>
+      <div class="rubric-row">
+        <span class="criterion">market_fit</span>
+        <span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span>
+      </div>
+      <div class="rubric-row">
+        <span class="criterion">technical_feasibility</span>
+        <span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span>
+      </div>
+      <div class="rubric-row">
+        <span class="criterion">org_readiness</span>
+        <span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>
+      </div>
+      <div class="rubric-row">
+        <span class="criterion">compliance_risk</span>
+        <span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section id="approach" class="wrap" data-reveal>
+    <div class="eyebrow">Approach</div>
+    <h2 style="font-size:32px; max-width:22ch;">Every ambiguous ask gets turned into criteria before it becomes a roadmap item.</h2>
+    <div class="approach-grid">
+      <div class="approach-item">
+        <div class="num">01</div>
+        <h3>Score before you build</h3>
+        <p>Vague opportunities get run through a scoring matrix before they earn a spot on the roadmap. Market fit, feasibility, and risk get made explicit instead of assumed.</p>
+      </div>
+      <div class="approach-item">
+        <div class="num">02</div>
+        <h3>Disqualify fast</h3>
+        <p>Knowing what not to pursue is as valuable as knowing what to build. I write rejection criteria as deliberately as acceptance criteria.</p>
+      </div>
+      <div class="approach-item">
+        <div class="num">03</div>
+        <h3>Name the gaps</h3>
+        <p>Cross-functional work stalls when ownership is implicit, so I map who owns what out loud before it turns into a missed sprint.</p>
+      </div>
+      <div class="approach-item">
+        <div class="num">04</div>
+        <h3>Treat feedback as input</h3>
+        <p>A strategy doc isn't done when it's shared. It's done once the real gaps in it, like pricing, validation, and sizing, get closed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work" class="wrap">
+    <div class="eyebrow">Selected work</div>
+    <h2 style="font-size:32px;">Case studies</h2>
+
+    <div class="brief" data-reveal>
+      <div class="brief-head">
+        <h3>GTM Strategy for Underserved Verticals</h3>
+        <span class="brief-tag">Aunix · Strategy</span>
+      </div>
+      <div class="brief-body">
+        <div class="brief-field">
+          <div class="label">Context</div>
+          <p>Aunix needed a beachhead market among industries with heavy workflow fragmentation. Going too broad would have diluted positioning and sales focus.</p>
+        </div>
+        <div class="brief-field">
+          <div class="label">Approach</div>
+          <ul>
+            <li>Built an industry scoring matrix to rank manufacturing, professional services, and healthcare against fit criteria</li>
+            <li>Designed a litmus-test framework to quickly validate whether a given account matched the target profile</li>
+            <li>Positioned against competitors around natural-language interfaces and rapid deployment</li>
+          </ul>
+        </div>
+        <div class="brief-field">
+          <div class="label">Outcome</div>
+          <p>Review feedback flagged real gaps in market sizing, pricing specificity, risk assessment, and customer validation. Those became the next round of work: structured customer interviews, tiered pricing, unit economics, and a 90-day execution roadmap.</p>
+          <p class="placeholder-note">↳ Replace with the actual roadmap outcome once it lands. This is where a real number or decision goes.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="brief" data-reveal>
+      <div class="brief-head">
+        <h3>Prospect Rejection Filter</h3>
+        <span class="brief-tag">Aunix · GTM Ops</span>
+      </div>
+      <div class="brief-body">
+        <div class="brief-field">
+          <div class="label">Context</div>
+          <p>Not every inbound lead is worth pursuing. The team needed a fast, consistent way to triage before spending cycles on a bad-fit account.</p>
+        </div>
+        <div class="brief-field">
+          <div class="label">Approach</div>
+          <p>Built a structured disqualification table across four axes: technical fit, organizational readiness, cultural alignment, and compliance risk, turning gut-feel rejections into a repeatable filter.</p>
+        </div>
+        <div class="brief-field">
+          <div class="label">Outcome</div>
+          <p class="placeholder-note">↳ Add the real result here: hours saved per week, percent of leads filtered pre-call, or how sales/GTM adopted it.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="brief" data-reveal>
+      <div class="brief-head">
+        <h3>Sprint Ops &amp; Ownership Gaps</h3>
+        <span class="brief-tag">Aunix · Execution</span>
+      </div>
+      <div class="brief-body">
+        <div class="brief-field">
+          <div class="label">Context</div>
+          <p>Cross-functional AI/agent work tends to stall quietly when no one is explicitly on the hook for a piece of it.</p>
+        </div>
+        <div class="brief-field">
+          <div class="label">Approach</div>
+          <ul>
+            <li>Wrote and groomed user stories in Jira for sprint planning</li>
+            <li>Coordinated agent-testing cycles across the team</li>
+            <li>Ran a gap analysis to surface work with no clear owner</li>
+          </ul>
+        </div>
+        <div class="brief-field">
+          <div class="label">Outcome</div>
+          <p class="placeholder-note">↳ Add the real result here: how many gaps closed, sprint velocity change, or a concrete before/after.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="brief" data-reveal>
+      <div class="brief-head">
+        <h3>Product Analytics Dashboard</h3>
+        <span class="brief-tag">Aunix · Analytics</span>
+      </div>
+      <div class="brief-body">
+        <div class="brief-field">
+          <div class="label">Context</div>
+          <p>The team had strategy decks but no shared, living view of how the product was actually being used. Adoption, retention, and feature usage all lived in separate spreadsheets.</p>
+        </div>
+        <div class="brief-field">
+          <div class="label">Approach</div>
+          <p>Built a multi-page analytics dashboard in Appsmith with separate views for adoption, retention, and usage, combining KPI summaries with bar and pie charts per page so different stakeholders could check their own slice without digging through raw data.</p>
+        </div>
+      </div>
+
+      <div class="dash-mock">
+        <div class="dash-tabs" role="tablist">
+          <button class="dash-tab active" data-tab="adoption" role="tab" aria-selected="true">adoption.view</button>
+          <button class="dash-tab" data-tab="retention" role="tab" aria-selected="false">retention.view</button>
+          <button class="dash-tab" data-tab="usage" role="tab" aria-selected="false">usage.view</button>
+        </div>
+
+        <div class="dash-panel active" data-panel="adoption">
+          <div class="dash-kpis">
+            <div class="dash-kpi"><div class="val">128</div><div class="lbl">Weekly active orgs</div></div>
+            <div class="dash-kpi"><div class="val">+34</div><div class="lbl">New signups (30d)</div></div>
+          </div>
+          <div class="dash-charts">
+            <div class="bar-chart">
+              <div class="bar-col"><div class="bar" data-h="42" style="background:var(--teal);"></div><div class="bar-label">W1</div></div>
+              <div class="bar-col"><div class="bar" data-h="55" style="background:var(--teal);"></div><div class="bar-label">W2</div></div>
+              <div class="bar-col"><div class="bar" data-h="50" style="background:var(--teal);"></div><div class="bar-label">W3</div></div>
+              <div class="bar-col"><div class="bar" data-h="70" style="background:var(--teal);"></div><div class="bar-label">W4</div></div>
+              <div class="bar-col"><div class="bar" data-h="88" style="background:var(--teal);"></div><div class="bar-label">W5</div></div>
+              <div class="bar-col"><div class="bar" data-h="100" style="background:var(--mustard);"></div><div class="bar-label">W6</div></div>
+            </div>
+            <div class="donut-wrap">
+              <div class="donut" style="background:conic-gradient(var(--mustard) 0% 40%, var(--teal) 40% 72%, var(--line) 72% 100%);"></div>
+              <div class="donut-legend">
+                <span><i class="swatch" style="background:var(--mustard);"></i>Manufacturing 40%</span>
+                <span><i class="swatch" style="background:var(--teal);"></i>Prof. services 32%</span>
+                <span><i class="swatch" style="background:var(--line);"></i>Healthcare 28%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-panel" data-panel="retention">
+          <div class="dash-kpis">
+            <div class="dash-kpi"><div class="val">71%</div><div class="lbl">30-day retention</div></div>
+            <div class="dash-kpi"><div class="val">6</div><div class="lbl">Churned orgs (30d)</div></div>
+          </div>
+          <div class="dash-charts">
+            <div class="bar-chart">
+              <div class="bar-col"><div class="bar" data-h="90" style="background:var(--teal);"></div><div class="bar-label">Jan</div></div>
+              <div class="bar-col"><div class="bar" data-h="82" style="background:var(--teal);"></div><div class="bar-label">Feb</div></div>
+              <div class="bar-col"><div class="bar" data-h="76" style="background:var(--teal);"></div><div class="bar-label">Mar</div></div>
+              <div class="bar-col"><div class="bar" data-h="71" style="background:var(--mustard);"></div><div class="bar-label">Apr</div></div>
+            </div>
+            <div class="donut-wrap">
+              <div class="donut" style="background:conic-gradient(var(--teal) 0% 55%, var(--mustard) 55% 82%, var(--line) 82% 100%);"></div>
+              <div class="donut-legend">
+                <span><i class="swatch" style="background:var(--teal);"></i>Enterprise 55%</span>
+                <span><i class="swatch" style="background:var(--mustard);"></i>Team 27%</span>
+                <span><i class="swatch" style="background:var(--line);"></i>Free 18%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-panel" data-panel="usage">
+          <div class="dash-kpis">
+            <div class="dash-kpi"><div class="val">4.2</div><div class="lbl">Avg sessions / week</div></div>
+            <div class="dash-kpi"><div class="val">58%</div><div class="lbl">Core feature adoption</div></div>
+          </div>
+          <div class="dash-charts">
+            <div class="bar-chart">
+              <div class="bar-col"><div class="bar" data-h="100" style="background:var(--mustard);"></div><div class="bar-label">Search</div></div>
+              <div class="bar-col"><div class="bar" data-h="74" style="background:var(--teal);"></div><div class="bar-label">Reports</div></div>
+              <div class="bar-col"><div class="bar" data-h="48" style="background:var(--teal);"></div><div class="bar-label">Automations</div></div>
+              <div class="bar-col"><div class="bar" data-h="30" style="background:var(--teal);"></div><div class="bar-label">Integrations</div></div>
+            </div>
+            <div class="donut-wrap">
+              <div class="donut" style="background:conic-gradient(var(--mustard) 0% 45%, var(--teal) 45% 78%, var(--line) 78% 100%);"></div>
+              <div class="donut-legend">
+                <span><i class="swatch" style="background:var(--mustard);"></i>Daily users 45%</span>
+                <span><i class="swatch" style="background:var(--teal);"></i>Weekly users 33%</span>
+                <span><i class="swatch" style="background:var(--line);"></i>Occasional 22%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dash-caption">↳ The original dashboard is under NDA and can't be shared. This is a recreation from memory to represent its structure, not an actual export. Numbers shown are illustrative, not real figures.</div>
+    </div>
+
+    <div class="brief" data-reveal>
+      <div class="brief-head">
+        <h3>Model-Stumping Search Prompts</h3>
+        <span class="brief-tag">Project Seal · Handshake AI</span>
+      </div>
+      <div class="brief-body">
+        <div class="brief-field">
+          <div class="label">Context</div>
+          <p>Invited as a Fellow on Project Seal, a freelance prompt-engineering fellowship run through Handshake AI, focused on testing how well frontier models can search the web to find real answers.</p>
+        </div>
+        <div class="brief-field">
+          <div class="label">Approach</div>
+          <ul>
+            <li>Designed realistic, web-dependent questions built to stump the latest models</li>
+            <li>Identified reliable, verifiable sources for each question before writing the prompt</li>
+            <li>Constructed a "gold" search trajectory documenting exactly how a correct answer should be found and verified, step by step</li>
+          </ul>
+        </div>
+        <div class="brief-field">
+          <div class="label">Outcome</div>
+          <p class="placeholder-note">↳ Add the real result here: how many prompts you've shipped, an example question you're proud of, or feedback from the fellowship.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="wrap" data-reveal>
+    <div class="eyebrow">Toolkit</div>
+    <h2 style="font-size:32px;">Skills &amp; tools</h2>
+    <div class="ledger">
+      <div class="ledger-row">
+        <span class="lname">Product Strategy</span>
+        <span class="ldesc">Roadmap framing, competitive positioning, scoring frameworks, prioritization</span>
+      </div>
+      <div class="ledger-row">
+        <span class="lname">GTM &amp; Qualification</span>
+        <span class="ldesc">Vertical scoring, litmus-test frameworks, disqualification criteria</span>
+      </div>
+      <div class="ledger-row">
+        <span class="lname">Execution</span>
+        <span class="ldesc">Sprint planning, Jira user stories, cross-functional coordination</span>
+      </div>
+      <div class="ledger-row">
+        <span class="lname">AI / Agent Workflows</span>
+        <span class="ldesc">Agent testing coordination, AI-native product workflows</span>
+      </div>
+      <div class="ledger-row">
+        <span class="lname">Analytics</span>
+        <span class="ldesc">KPI framing, dashboards, adoption &amp; retention signals</span>
+      </div>
+      <div class="ledger-row">
+        <span class="lname">Prompt Engineering</span>
+        <span class="ldesc">Search-grounded prompt design, source verification, gold-trajectory writing</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="wrap" data-reveal>
+    <div class="eyebrow">About</div>
+    <div class="about">
+      <div class="about-photo" role="img" aria-label="Photo of Abhirvey Jena">Replace<br>with photo</div>
+      <div class="about-text">
+        <p>I'm Abhirvey, an Associate Product Manager working on Aunix, an AI-powered SaaS product. Outside of scoring matrices and sprint boards, I'm usually hunting for the next ambiguous problem worth turning into a framework.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="wrap">
+    <div class="contact" data-reveal>
+      <h2>Looking for a PM who thinks in frameworks, not just features?</h2>
+      <p>Open to Associate PM roles and AI SaaS product opportunities.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="mailto:REPLACE_WITH_EMAIL">Email me</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/abhirvey-jena-9b4b54278/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Abhirvey Jena. Built by hand, not a template.
+</footer>
+
+<script>
+  // mobile menu toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    const open = mobileMenu.style.display === 'block';
+    mobileMenu.style.display = open ? 'none' : 'block';
+    menuBtn.setAttribute('aria-expanded', String(!open));
+  });
+  document.querySelectorAll('#mobileMenu a').forEach(a => {
+    a.addEventListener('click', () => { mobileMenu.style.display = 'none'; });
+  });
+
+  // animate bar charts to their target height
+  function animateBars(container){
+    container.querySelectorAll('.bar').forEach(bar => {
+      const target = bar.dataset.h;
+      bar.style.height = '0%';
+      requestAnimationFrame(() => requestAnimationFrame(() => { bar.style.height = target + '%'; }));
+    });
+  }
+
+  // dashboard mockup tab switching
+  document.querySelectorAll('.dash-mock').forEach(mock => {
+    const tabs = mock.querySelectorAll('.dash-tab');
+    const panels = mock.querySelectorAll('.dash-panel');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+        panels.forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        const activePanel = mock.querySelector('[data-panel="' + tab.dataset.tab + '"]');
+        activePanel.classList.add('active');
+        animateBars(activePanel);
+      });
+    });
+  });
+
+  // scroll reveal
+  const reveals = document.querySelectorAll('[data-reveal]');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          const firstBarChart = e.target.querySelector('.dash-panel.active');
+          if (firstBarChart) animateBars(firstBarChart);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => io.observe(el));
+  } else {
+    reveals.forEach(el => el.classList.add('in'));
+    document.querySelectorAll('.dash-panel.active').forEach(animateBars);
+  }
+</script>
+
+</body>
+</html>
